@@ -1,0 +1,71 @@
+{% load static %}
+<div class="col-lg-4 sidebar ftco-animate bg-light pt-5">
+    <div class="sidebar-box pt-md-4">
+        <form action="/" class="search-form">
+            <div class="form-group">
+                <span class="icon icon-search"></span>
+                <input type="search" name="search" class="form-control" placeholder="Type a keyword and hit enter">
+            </div>
+        </form>
+    </div>
+    <div class="sidebar-box ftco-animate">
+        <h3 class="sidebar-heading">Categories</h3>
+        <ul class="categories">
+            {% for category in categories %}
+            <li><a href="/?cat={{ category }}">{{ category }} <span>{{ category.post_set.count }}</span></a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="sidebar-box ftco-animate">
+        <h3 class="sidebar-heading">Last Articles</h3>
+        {% for last_3_post in last_3_posts %}
+        <div class="block-21 mb-4 d-flex">
+            <a class="blog-img mr-4" href="#"
+               style="background-image:url({{ last_3_post.image.url }})"></a>
+            <div class="text">
+                <h3 class="heading"><a href="#">{{ last_3_post.title }}</a>
+                </h3>
+                <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span>{{ last_3_post.created_at }}</a></div>
+                    <div><a href="#"><span class="icon-person"></span>{{ last_3_post.category }}</a></div>
+                    <div><a href="#"><span class="icon-chat"></span>{{ last_3_post.comment_set.count }}</a></div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="sidebar-box ftco-animate">
+        <h3 class="sidebar-heading">Tag Cloud</h3>
+        <ul class="tagcloud">
+            {% for tag in tags %}
+            <a href="/?tag={{ tag }}" class="tag-cloud-link">{{ tag }}</a>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="sidebar-box subs-wrap img"
+         style="background-image:url({% static 'images/xbg_1.jpg.pagespeed.ic.yyDakF8d8Y.jpg' %})">
+        <div class="overlay"></div>
+        <h3 class="mb-4 sidebar-heading">Newsletter</h3>
+        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia</p>
+        <form method="post" class="subscribe-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="email" name="subs" class="form-control" placeholder="Email Address">
+                <input type="submit" value="Subscribe" class="mt-2 btn btn-white submit">
+            </div>
+        </form>
+    </div>
+    <div class="sidebar-box ftco-animate">
+        <h3 class="sidebar-heading">Archives</h3>
+        <ul class="categories">
+            {% for date in dates %}
+                <li><a href="?month={{ date.0 }}&year={{ date.1 }}">{{ date.0 }} - {{ date.1 }} <span></span></a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="sidebar-box ftco-animate">
+        <h3 class="sidebar-heading">Paragraph</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem
+            necessitatibus voluptate quod mollitia delectus aut.</p>
+    </div>
+</div>

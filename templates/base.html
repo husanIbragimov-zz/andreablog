@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AnderaProject</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script nonce="d3e66675-56be-4b18-8c29-526bbfe8ae41">(function (w, d) {
+        !function (a, e, t, r) {
+            a.zarazData = a.zarazData || {}, a.zarazData.executed = [], a.zaraz = {deferred: []}, a.zaraz.q = [], a.zaraz._f = function (e) {
+                return function () {
+                    var t = Array.prototype.slice.call(arguments);
+                    a.zaraz.q.push({m: e, a: t})
+                }
+            };
+            for (const e of ["track", "set", "ecommerce", "debug"]) a.zaraz[e] = a.zaraz._f(e);
+            a.addEventListener("DOMContentLoaded", (() => {
+                var t = e.getElementsByTagName(r)[0], z = e.createElement(r), n = e.getElementsByTagName("title")[0];
+                for (n && (a.zarazData.t = e.getElementsByTagName("title")[0].text), a.zarazData.w = a.screen.width, a.zarazData.h = a.screen.height, a.zarazData.j = a.innerHeight, a.zarazData.e = a.innerWidth, a.zarazData.l = a.location.href, a.zarazData.r = e.referrer, a.zarazData.k = a.screen.colorDepth, a.zarazData.n = e.characterSet, a.zarazData.o = (new Date).getTimezoneOffset(), a.zarazData.q = []; a.zaraz.q.length;) {
+                    const e = a.zaraz.q.shift();
+                    a.zarazData.q.push(e)
+                }
+                z.defer = !0, z.referrerPolicy = "origin", z.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(a.zarazData))), t.parentNode.insertBefore(z, t)
+            }))
+        }(w, d, 0, "script");
+    })(window, document);</script>
+</head>
+<body>
+
+<div id="colorlib-page">
+    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+    {% include 'sidebar.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+
+</div>
+
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js+popper.min.js+bootstrap.min.js.pagespeed.jc.ufA-InWYhU.js' %}"></script>
+<script>eval(mod_pagespeed_j9z0BOW3Xo);</script>
+<script>eval(mod_pagespeed_Sv59xs6XfY);</script>
+<script>eval(mod_pagespeed_6hivBMilT4);</script>
+<script src="{% static 'js/jquery.easing.1.3.js+jquery.waypoints.min.js+jquery.stellar.min.js+owl.carousel.min.js.pagespeed.jc.7Uf8nwPPt3.js' %}"></script>
+<script>eval(mod_pagespeed_a9in6ca9LP);</script>
+<script>eval(mod_pagespeed_E5Rl_eUdra);</script>
+<script>eval(mod_pagespeed_J7fR9gg3IV);</script>
+<script>eval(mod_pagespeed_JGC9XV$UWo);</script>
+<script src="{% static 'js/jquery.magnific-popup.min.js+aos.js+jquery.animateNumber.min.js+scrollax.min.js+google-map.js+main.js.pagespeed.jc.noK85cOv9x.js' %}"></script>
+<script>eval(mod_pagespeed_9FDixMCPbL);</script>
+<script>eval(mod_pagespeed_cWDp1F0K9O);</script>
+<script>eval(mod_pagespeed_tBed9FYmsP);</script>
+<script>eval(mod_pagespeed_xipmmYMCNr);</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
+<script>eval(mod_pagespeed_YuUFcjXVeT);</script>
+<script>eval(mod_pagespeed_6pY$MsZg3C);</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>
+<script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
+        integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
+        data-cf-beacon='{"rayId":"702f915cae41fe54","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}'
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>

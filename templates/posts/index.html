@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div id="colorlib-main">
+        <section class="ftco-section ftco-no-pt ftco-no-pb">
+            <div class="container">
+                <div class="row d-flex">
+                    <div class="col-xl-8 py-5 px-md-5">
+                        <div class="row pt-md-4">
+                            {% for object in objects %}
+                            <div class="col-md-12">
+                                <div class="blog-entry ftco-animate d-md-flex">
+                                    <a href="{% url 'post:single' slug=object.slug %}" class="img img-2"
+                                       style="background-image: url({{ object.image.url }});"></a>
+                                    <div class="text text-2 pl-md-4">
+                                        <h3 class="mb-2"><a href="{% url 'post:single' slug=object.slug %}">{{ object.title }}</a></h3>
+                                        <div class="meta-wrap">
+                                            <p class="meta">
+                                                <span><i class="icon-calendar mr-2"></i>{{ object.created_at }}</span>
+                                                <span><a href="{% url 'post:single' slug=object.slug %}"><i class="icon-folder-o mr-2"></i>{{ object.category }}</a></span>
+                                                <span><i class="icon-comment2 mr-2"></i>{{ object.post_comments_count  }} Comments</span>
+                                            </p>
+                                        </div>
+                                        <p class="mb-4">{{ object.content|slice:100 }}</p>
+                                        <p><ul class="tagcloud">
+{#                                                    {% for tag in object.tags.all %}#}
+{#                                                        <a href="?tag={{ tag.tags }}" class="tag-cloud-link">{{ tag.tag }}</a>#}
+{#                                                    {% endfor %}#}
+                                                </ul></p>
+                                        <p><a href="{% url 'post:single' slug=object.slug %}" class="btn-custom">Read More <span
+                                                class="ion-ios-arrow-forward"></span></a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% include 'pagination.html' %}
+                    </div>
+                    {% include 'rsite.html' with objects=objects dates=dates categories=categories tags=tags last_3_posts=last_3_posts %}
+                </div>
+            </div>
+        </section>
+    </div>
+    </div>
+
+    <div id="ftco-loader" class="show fullscreen">
+        <svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                    stroke="#F96D00"/>
+        </svg>
+    </div>
+{% endblock %}
